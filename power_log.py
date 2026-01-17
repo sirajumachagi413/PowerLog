@@ -5,7 +5,7 @@ import os
 from datetime import datetime
 
 # Configuration
-LOG_FILE = "power_data_py.csv" # Renamed to avoid conflict if running both
+LOG_FILE = "power_data.csv"
 INTERVAL = 1  # Seconds
 
 def get_reading():
@@ -14,9 +14,9 @@ def get_reading():
     base_voltage = 230
     noise = random.uniform(-10, 10)
     
-    # Randomly inject a fault event (10% chance)
+    # Randomly inject a fault event
     if random.random() < 0.1:
-        noise += random.choice([20, -25]) # Surge or Brownout
+        noise += random.choice([20, -25])
 
     voltage = base_voltage + noise
     
